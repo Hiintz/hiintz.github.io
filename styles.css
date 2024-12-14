@@ -1,0 +1,82 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto; /* Permettre le défilement sur mobile */
+    padding: 10px; /* Ajouter du padding pour les petits écrans */
+    margin: 0;
+    color: #333;
+}
+
+.container {
+    text-align: center;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Utiliser 100% pour prendre toute la largeur disponible */
+    max-width: 600px;
+}
+
+h1 {
+    font-size: 2.5em;
+    color: #ff6f61;
+}
+
+.intro-text {
+    font-size: 1.2em;
+    margin: 20px 0;
+}
+
+.puzzle-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr)); /* Colonnes flexibles */
+    grid-template-rows: auto; /* Laisser les lignes s'adapter automatiquement */
+    gap: 1px; /* Réduire l'espace entre les pièces */
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.puzzle-piece {
+    width: 100%;   /* La pièce prend toute la largeur de sa cellule */
+    height: 0;
+    padding-bottom: 100%; /* Maintenir un ratio 1:1 */
+    background-size: cover;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.puzzle-piece:hover {
+    transform: none; /* Désactiver l'effet hover sur mobile */
+}
+
+.reveal-text {
+    display: none;
+    background-color: #e8f8f5;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 30px;
+    color: #2e8b57;
+}
+
+.reveal-text h2 {
+    font-size: 2.5em;
+}
+
+/* Media query pour les écrans de petite taille */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.8em;
+    }
+
+    .intro-text {
+        font-size: 1em;
+    }
+
+    .puzzle-container {
+        gap: 1px; /* Réduire encore l'espace sur les petits écrans */
+    }
+}
