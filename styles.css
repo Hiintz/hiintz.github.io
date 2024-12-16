@@ -64,11 +64,30 @@ h1 {
     border-radius: 10px;
     padding: 20px;
     margin-top: 30px;
-    color: #2e8b57;
+    color: #ff6f61;
 }
 
 .reveal-text h2 {
     font-size: 2.5em;
+}
+
+#congrat {
+    font-weight: 800;
+    font-style: normal;
+    transition: all .1s linear;
+    background-color: transparent;
+    border: solid 2px #ff6f61;
+    border-radius: 4px;
+    color: #ff6f61;
+    display: inline-block;
+    font-size: 14px;
+    text-transform: uppercase;
+    margin: 5px;
+    padding: 10px;
+    line-height: 1em;
+    text-decoration: none;
+    min-width: 120px;
+    cursor: pointer;
 }
 
 /* Media query pour les écrans de petite taille */
