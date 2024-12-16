@@ -5,14 +5,15 @@ const puzzleContainer = document.getElementById('puzzleContainer');
 const revealText = document.getElementById('revealText');
 let puzzlePieces = [];
 let correctPositions = [];
-let rows = 5; // Nombre de lignes du puzzle
-let cols = 5; // Nombre de colonnes du puzzle
+let rows = 3; // Nombre de lignes du puzzle
+let cols = 3; // Nombre de colonnes du puzzle
 let totalPieces = rows * cols; // Calcul du nombre total de pièces
 const imageSrc = 'echographie.jpg'; // Chemin de l'image
 const imageWidth = 450;  // Largeur de l'image en pixels
 const imageHeight = 450; // Hauteur de l'image en pixels
 const pieceWidth = imageWidth / cols;  // Largeur d'une pièce
 const pieceHeight = imageHeight / rows; // Hauteur d'une pièce
+let selectedPiece = null;
 
 // Fonction pour mélanger un tableau
 function shuffle(array) {
@@ -28,7 +29,7 @@ function generatePuzzle() {
     puzzleContainer.style.display = 'grid';
     puzzleContainer.style.gridTemplateColumns = `repeat(${cols}, ${pieceWidth}px)`;
     puzzleContainer.style.gridTemplateRows = `repeat(${rows}, ${pieceHeight}px)`;
-    
+
     // Créer un tableau des indices des pièces
     let indices = [];
     for (let i = 0; i < totalPieces; i++) {
@@ -59,6 +60,7 @@ function generatePuzzle() {
         piece.addEventListener('dragover', dragOver);
         piece.addEventListener('drop', drop);
         piece.addEventListener('dragend', dragEnd);
+        piece.addEventListener('click', handlePieceClick);
         puzzleContainer.appendChild(piece);
         puzzlePieces.push(piece);
         correctPositions.push(i);
@@ -98,6 +100,40 @@ function drop(event) {
 
     targetElement.style.backgroundPosition = tempBackgroundPosition;
     targetElement.style.backgroundImage = tempBackgroundImage;
+
+    // Vérifiez si le puzzle est résolu
+    checkPuzzle();
+}
+
+// Fonction pour gérer le clic sur une pièce
+function handlePieceClick(event) {
+    const piece = event.target;
+
+    if (selectedPiece) {
+        swapPieces(selectedPiece, piece);
+        selectedPiece.classList.remove('selected');
+        selectedPiece = null;
+    } else {
+        selectedPiece = piece;
+        piece.classList.add('selected');
+    }
+
+    // Haptic feedback
+    if (navigator.vibrate) {
+        navigator.vibrate(50);
+    }
+}
+
+// Fonction pour échanger deux pièces
+function swapPieces(piece1, piece2) {
+    const tempBackgroundPosition = piece1.style.backgroundPosition;
+    const tempBackgroundImage = piece1.style.backgroundImage;
+
+    piece1.style.backgroundPosition = piece2.style.backgroundPosition;
+    piece1.style.backgroundImage = piece2.style.backgroundImage;
+
+    piece2.style.backgroundPosition = tempBackgroundPosition;
+    piece2.style.backgroundImage = tempBackgroundImage;
 
     // Vérifiez si le puzzle est résolu
     checkPuzzle();

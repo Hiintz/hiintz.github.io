@@ -49,6 +49,11 @@ h1 {
     transition: transform 0.3s ease;
 }
 
+.puzzle-piece.selected {
+    outline: 2px solid #ff6f61; /* Use outline instead of border to avoid affecting layout */
+    outline-offset: -2px; /* Adjust offset to keep the outline within the piece */
+}
+
 .puzzle-piece:hover {
     transform: none; /* Désactiver l'effet hover sur mobile */
 }
