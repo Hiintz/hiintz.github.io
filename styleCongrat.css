@@ -6,7 +6,7 @@
     --color-heart: #7eabaf; /* Updated to beige */
 
     --env-border-radius: 12px; /* Doubled */
-    --env-width: 560px; /* Doubled */
+    --env-width: 530px; /* Doubled */
     --env-height: 360px; /* Doubled */
     --heart-width: 100px; /* Doubled */
 
@@ -36,8 +36,8 @@
 }
 
 .flap {
-    border-left: 280px solid transparent; /* Doubled */
-    border-right: 280px solid transparent; /* Doubled */
+    border-left: 265px solid transparent; /* Doubled */
+    border-right: 265px solid transparent; /* Doubled */
     border-bottom: 164px solid transparent; /* a little smaller */
     border-top: 196px solid var(--color-flap); /* Updated to use the new color */
     transform-origin: top;
