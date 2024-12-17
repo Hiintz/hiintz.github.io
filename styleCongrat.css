@@ -6,9 +6,9 @@
     --color-heart: #7eabaf; /* Updated to beige */
 
     --env-border-radius: 12px; /* Doubled */
-    --env-width: 530px; /* Doubled */
-    --env-height: 360px; /* Doubled */
-    --heart-width: 100px; /* Doubled */
+    --env-width: clamp(280px, 80vw, 560px); /* Rendre la largeur de l'enveloppe responsive */
+    --env-height: calc(var(--env-width) * (360 / 560)); /* Maintenir le ratio hauteur/largeur */
+    --heart-width: calc(var(--env-width) * (100 / 560)); /* Ajuster la taille du cœur proportionnellement */
 
     --font-div-color: #0d0d23; 
 }
@@ -23,9 +23,10 @@
     border-bottom-right-radius: var(--env-border-radius);
     margin-left: auto;
     margin-right: auto;
-    top: 200px; 
+    top: auto; /* Laisser le flexbox gérer la position verticale */
     background-color: var(--color-flap);
     box-shadow: 0 4px 20px rgba(0,0,0,.2);
+    z-index: 1;
 }
 
 .front { 
@@ -36,10 +37,10 @@
 }
 
 .flap {
-    border-left: 265px solid transparent; /* Doubled */
-    border-right: 265px solid transparent; /* Doubled */
-    border-bottom: 164px solid transparent; /* a little smaller */
-    border-top: 196px solid var(--color-flap); /* Updated to use the new color */
+    border-left: calc(var(--env-width) / 2) solid transparent;
+    border-right: calc(var(--env-width) / 2) solid transparent;
+    border-bottom: calc(var(--env-height) * (164 / 360)) solid transparent;
+    border-top: calc(var(--env-height) * (196 / 360)) solid var(--color-flap);
     transform-origin: top;
     pointer-events: none;
 }
@@ -83,8 +84,8 @@
     position: absolute;
     top: 10px;
     right: 10px;
-    width: 200px; /* Adjust size as needed */
-    height: 200px; /* Adjust size as needed */
+    width: calc(var(--env-width) * (200 / 560)); /* Ajuster la taille de la photo proportionnellement */
+    height: calc(var(--env-height) * (200 / 360)); /* Ajuster la taille de la photo proportionnellement */
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0,0,0,.1);
 }
@@ -243,12 +244,22 @@ body {
 }
 
 .envlope-wrapper {
-    height: calc(var(--env-height) + 200px);
+    /* Supprimer la hauteur fixe pour éviter les problèmes de débordement */
+    /* Modifier le display pour utiliser flex et aligner les éléments verticalement */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Centrer verticalement */
+    /* min-height: 100vh; S'assurer que le wrapper occupe toute la hauteur de la page */
+    margin-top: 30vh; /* Supprimer la marge supérieure */
 }
 
 .reset {
     display: flex;
     justify-content: center;
+    position: relative; /* S'assurer que la position est relative */
+    z-index: 2; /* Placer au-dessus de l'enveloppe */
+    margin-top: 10px; /* Ajuster la marge si nécessaire */
 }
 
 .reset button {
@@ -282,7 +293,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 20px; /* Adjusted margin-top to move the switch down */
+    position: relative; /* S'assurer que la position est relative */
+    z-index: 2; /* Placer au-dessus de l'enveloppe */
+    margin-top: 20px; /* Ajouter une marge supérieure si nécessaire */
     margin-bottom: 20px;
 }
 
