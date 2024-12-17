@@ -98,25 +98,25 @@
     /* background-color: #EEEFF0; */
 }
 
-.words.line1, .words.line2 {
+.words.line1, .words.line2, .words.line3 {
     font-family: 'Permanent Marker', cursive;
     font-weight: 400; /* Ensure the correct font weight is applied */
-    font-size: x-large;
+    font-size: clamp(16px, 4vw, 32px); /* Rendre la taille de police responsive */
     color: var(--font-div-color);
 }
 
 .words.line1 {
-    top: 15%;
-    width: 40%;
-    height: 7%;
+    top: 10%;
+    /* width: 40%;
+    height: 7%; */
 }
 
 .words.line2 {
-    top: 25%; /* Reduced space between line1 and line2 */
+    top: 19%; /* Reduced space between line1 and line2 */
 }
 
 .words.line3 {
-    top: 50%;
+    top: 30%;
 }
 
 .words.line4 {
