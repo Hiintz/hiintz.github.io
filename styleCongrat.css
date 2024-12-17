@@ -148,7 +148,7 @@
 
 .hearts {
     position: absolute;
-    top: calc(var(--env-height) / 2);
+    top: calc(var(--env-height) / 2.5); /* Adjusted to move hearts up */
     left: 0;
     right: 0;
     z-index: 2;
@@ -247,8 +247,8 @@ body {
 }
 
 .reset {
-    text-align: center;
-    margin-top: 50px; /* Adjusted margin-top to move the buttons down */
+    display: flex;
+    justify-content: center;
 }
 
 .reset button {
@@ -256,6 +256,7 @@ body {
     font-style: normal;
     transition: all .1s linear;
     -webkit-appearance: none;
+    appearance: none;
     background-color: transparent;
     border: solid 2px var(--color-env);
     border-radius: 4px;

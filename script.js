@@ -27,8 +27,9 @@ function shuffle(array) {
 function generatePuzzle() {
     // Ajuster la grille du puzzle pour le nombre de colonnes et de lignes
     puzzleContainer.style.display = 'grid';
-    puzzleContainer.style.gridTemplateColumns = `repeat(${cols}, ${pieceWidth}px)`;
-    puzzleContainer.style.gridTemplateRows = `repeat(${rows}, ${pieceHeight}px)`;
+    puzzleContainer.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
+    puzzleContainer.style.gridTemplateRows = `repeat(${rows}, 1fr)`;
+    puzzleContainer.style.gap = '1px';
 
     // Créer un tableau des indices des pièces
     let indices = [];
@@ -46,10 +47,6 @@ function generatePuzzle() {
         const index = indices[i];
         const row = Math.floor(index / cols);
         const col = index % cols;
-
-        // Définir la taille de chaque pièce
-        // piece.style.width = `${pieceWidth}px`;
-        // piece.style.height = `${pieceHeight}px`;
 
         piece.style.backgroundImage = `url(${imageSrc})`;
         piece.style.backgroundSize = `${cols * 100}% ${rows * 100}%`;

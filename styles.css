@@ -5,7 +5,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: auto; /* Permettre le défilement sur mobile */
+    height: 100vh; /* Full viewport height */
     padding: 10px; /* Ajouter du padding pour les petits écrans */
     margin: 0;
     color: #333;
@@ -34,16 +34,16 @@ h1 {
 .puzzle-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(60px, 1fr)); /* Colonnes flexibles */
-    grid-template-rows: auto; /* Laisser les lignes s'adapter automatiquement */
+    grid-template-rows: repeat(auto-fit, minmax(60px, 1fr)); /* Laisser les lignes s'adapter automatiquement */
     gap: 1px; /* Réduire l'espace entre les pièces */
     justify-content: center;
     margin-top: 20px;
 }
 
 .puzzle-piece {
-    width: 100%;   /* La pièce prend toute la largeur de sa cellule */
+    width: 100%;
     height: 0;
-    padding-bottom: 100%; /* Maintenir un ratio 1:1 */
+    padding-bottom: 100%; /* Maintain aspect ratio */
     background-size: cover;
     cursor: pointer;
     transition: transform 0.3s ease;
@@ -102,5 +102,14 @@ h1 {
 
     .puzzle-container {
         gap: 1px; /* Réduire encore l'espace sur les petits écrans */
+    }
+
+    .container {
+        padding: 20px;
+    }
+
+    #congrat {
+        font-size: 12px;
+        padding: 8px;
     }
 }
