@@ -7,8 +7,8 @@
 
     --env-border-radius: 12px; /* Doubled */
     --env-width: clamp(280px, 80vw, 560px); /* Rendre la largeur de l'enveloppe responsive */
-    --env-height: calc(var(--env-width) * (360 / 560)); /* Maintenir le ratio hauteur/largeur */
-    --heart-width: calc(var(--env-width) * (100 / 560)); /* Ajuster la taille du cœur proportionnellement */
+    --env-height: calc(var(--env-width) * (360 / 600)); /* Maintenir le ratio hauteur/largeur */
+    --heart-width: calc(var(--env-width) * (100 / 600)); /* Ajuster la taille du cœur proportionnellement */
 
     --font-div-color: #0d0d23; 
 }

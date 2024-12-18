@@ -1,7 +1,7 @@
 /* styles.css */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f2f2f2;
+    background-color: #fbe4d2;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,10 +20,13 @@ body {
     width: 100%; /* Utiliser 100% pour prendre toute la largeur disponible */
     max-width: 600px;
 }
+p {
+    color: #7eabaf;
+}
 
-h1 {
+h1, h2 {
     font-size: 2.5em;
-    color: #ff6f61;
+    color: #c6522b;
 }
 
 .intro-text {
@@ -50,7 +53,7 @@ h1 {
 }
 
 .puzzle-piece.selected {
-    outline: 2px solid #ff6f61; /* Use outline instead of border to avoid affecting layout */
+    outline: 2px solid #c6522b; /* Use outline instead of border to avoid affecting layout */
     outline-offset: -2px; /* Adjust offset to keep the outline within the piece */
 }
 
@@ -60,7 +63,6 @@ h1 {
 
 .reveal-text {
     display: none;
-    background-color: #e8f8f5;
     border-radius: 10px;
     padding: 20px;
     margin-top: 30px;
