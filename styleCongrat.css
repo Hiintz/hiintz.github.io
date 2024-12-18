@@ -142,7 +142,7 @@
 }
 
 .open .letter {
-    transform: translateY(calc(-1 * var(--env-height) / 4)); /* Réduire le déplacement vers le haut */
+    transform: translateY(calc(-1 * var(--env-height) / 2.5)); /* Réduire le déplacement vers le haut */
     transition: transform .4s .6s ease, z-index .6s;
     z-index: 2;
 }
