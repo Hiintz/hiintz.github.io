@@ -157,6 +157,8 @@ function checkPuzzle() {
 
     if (isSolved) {
         revealText.style.display = 'block'; // Afficher l'annonce
+        // on scroll jusqu'à l'annonce
+        revealText.scrollIntoView({ behavior: "smooth" });
     }
 }
 
