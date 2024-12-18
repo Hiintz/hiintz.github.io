@@ -239,6 +239,45 @@
     }
 }
 
+/* Initialement, cacher la photo et les lignes de texte */
+.letter .photo,
+.letter .words {
+    opacity: 0;
+}
+
+/* Faire apparaître la photo lors de l'ouverture */
+.open .letter .photo {
+    animation: fadeInPhoto 3s forwards;
+    animation-delay: 2s;
+}
+
+/* Faire apparaître les lignes de texte avec un décalage */
+.open .letter .words.line1 {
+    animation: fadeInText 2s forwards;
+    animation-delay: 5s;
+}
+
+.open .letter .words.line2 {
+    animation: fadeInText 2s forwards;
+    animation-delay: 7s;
+}
+
+.open .letter .words.line3 {
+    animation: fadeInText 2s forwards;
+    animation-delay: 9s;
+}
+
+/* Définition des animations */
+@keyframes fadeInPhoto {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInText {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
 body {
     background-color: var(--color-bg);
     height: 100%;
