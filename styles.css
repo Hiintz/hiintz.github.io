@@ -78,9 +78,9 @@ h1, h2 {
     font-style: normal;
     transition: all .1s linear;
     background-color: transparent;
-    border: solid 2px #ff6f61;
+    border: solid 2px #c6522b;
     border-radius: 4px;
-    color: #ff6f61;
+    color: #c6522b;
     display: inline-block;
     font-size: 14px;
     text-transform: uppercase;
