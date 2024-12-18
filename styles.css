@@ -1,14 +1,15 @@
-/* styles.css */
 body {
     font-family: Arial, sans-serif;
     background-color: #fbe4d2;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Full viewport height */
+    /* height: 100vh;  */
+    height: 100%;
     padding: 10px; /* Ajouter du padding pour les petits écrans */
     margin: 0;
     color: #333;
+    
 }
 
 .container {
@@ -19,6 +20,7 @@ body {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     width: 100%; /* Utiliser 100% pour prendre toute la largeur disponible */
     max-width: 600px;
+    padding-top: 0;
 }
 p {
     color: #7eabaf;
@@ -63,9 +65,6 @@ h1, h2 {
 
 .reveal-text {
     display: none;
-    border-radius: 10px;
-    padding: 20px;
-    margin-top: 30px;
     color: #ff6f61;
 }
 
