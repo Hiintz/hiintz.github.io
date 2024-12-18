@@ -294,7 +294,6 @@ html, body {
     justify-content: center; /* Centrer verticalement */
     align-items: center;     /* Centrer horizontalement */
     min-height: 100vh;       /* S'assurer que le wrapper occupe toute la hauteur de la fenêtre */
-    padding-top: 20px; /* Réduire le padding-top pour gagner de l'espace vertical */
 }
 
 .envlope-wrapper {
