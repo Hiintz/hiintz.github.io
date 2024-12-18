@@ -6,7 +6,7 @@
     --color-heart: #7eabaf; /* Updated to beige */
 
     --env-border-radius: 12px; /* Doubled */
-    --env-width: clamp(280px, 80vw, 560px); /* Rendre la largeur de l'enveloppe responsive */
+    --env-width: min(clamp(280px, 80vw, 560px), calc(100vh - 250px)); /* Réduire le 250px si nécessaire */
     --env-height: calc(var(--env-width) * (360 / 650)); /* Maintenir le ratio hauteur/largeur */
     --heart-width: calc(var(--env-width) * (100 / 650)); /* Ajuster la taille du cœur proportionnellement */
 
@@ -101,7 +101,7 @@
 .words.line1, .words.line2, .words.line3 {
     font-family: 'Permanent Marker', cursive;
     font-weight: 400; /* Ensure the correct font weight is applied */
-    font-size: clamp(16px, 4vw, 32px); /* Rendre la taille de police responsive */
+    font-size: clamp(10px, 2vw, 18px); /* Réduire encore la taille de la police */
     color: var(--font-div-color);
 }
 
@@ -142,7 +142,7 @@
 }
 
 .open .letter {
-    transform: translateY(calc(-1 * var(--env-height) / 3));
+    transform: translateY(calc(-1 * var(--env-height) / 4)); /* Réduire le déplacement vers le haut */
     transition: transform .4s .6s ease, z-index .6s;
     z-index: 2;
 }
@@ -283,6 +283,20 @@ body {
     height: 100%;
 }
 
+html, body {
+    height: 100%; /* Assurer que le body et html occupent toute la hauteur */
+    margin: 0; /* Supprimer les marges par défaut */
+}
+
+.page-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centrer verticalement */
+    align-items: center;     /* Centrer horizontalement */
+    min-height: 100vh;       /* S'assurer que le wrapper occupe toute la hauteur de la fenêtre */
+    padding-top: 20px; /* Réduire le padding-top pour gagner de l'espace vertical */
+}
+
 .envlope-wrapper {
     /* Supprimer la hauteur fixe pour éviter les problèmes de débordement */
     /* Modifier le display pour utiliser flex et aligner les éléments verticalement */
@@ -291,7 +305,7 @@ body {
     align-items: center;
     justify-content: center; /* Centrer verticalement */
     /* min-height: 100vh; S'assurer que le wrapper occupe toute la hauteur de la page */
-    margin-top: 30vh; /* Supprimer la marge supérieure */
+    margin-top: 0; /* Supprimer la marge supérieure */
 }
 
 .reset {
@@ -299,7 +313,7 @@ body {
     justify-content: center;
     position: relative; /* S'assurer que la position est relative */
     z-index: 2; /* Placer au-dessus de l'enveloppe */
-    margin-top: 10px; /* Ajuster la marge si nécessaire */
+    margin-top: 5px; /* Réduire la marge supérieure pour rapprocher les boutons */
     flex-wrap: wrap;
 }
 
