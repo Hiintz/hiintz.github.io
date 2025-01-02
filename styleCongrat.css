@@ -1,23 +1,14 @@
 :root {
     --color-env: #c6522b;
-    /* Updated to a new color */
     --color-env2: #a04524;
-    /* Darkened version of --color-env */
     --color-flap: #8b3b1f;
-    /* Darkened version of --color-env */
     --color-bg: #fbe4d2;
-    /* Updated to a new background color */
     --color-heart: #7eabaf;
-    /* Updated to beige */
 
     --env-border-radius: 12px;
-    /* Doubled */
     --env-width: min(clamp(280px, 80vw, 560px), calc(100vh - 250px));
-    /* Réduire le 250px si nécessaire */
     --env-height: calc(var(--env-width) * (360 / 650));
-    /* Maintenir le ratio hauteur/largeur */
     --heart-width: calc(var(--env-width) * (100 / 650));
-    /* Ajuster la taille du cœur proportionnellement */
 
     --font-div-color: #0d0d23;
 }
@@ -31,7 +22,6 @@
     margin-left: auto;
     margin-right: auto;
     top: auto;
-    /* Laisser le flexbox gérer la position verticale */
     background-color: var(--color-flap);
     box-shadow: 0 4px 20px rgba(0, 0, 0, .2);
     z-index: 1;
@@ -57,7 +47,6 @@
     border-left: calc(var(--env-width) / 2) solid var(--color-env);
     border-right: calc(var(--env-width) / 2) solid var(--color-env);
     border-bottom: calc(var(--env-height) / 2) solid var(--color-env2);
-    /* Updated to use the new color */
     border-top: calc(var(--env-height) / 2) solid transparent;
     border-bottom-left-radius: var(--env-border-radius);
     border-bottom-right-radius: var(--env-border-radius);
@@ -94,9 +83,7 @@
     top: 10px;
     right: 10px;
     width: calc(var(--env-width) * (200 / 360));
-    /* Ajuster la taille de la photo proportionnellement */
     height: calc(var(--env-height) * (200 / 300));
-    /* Ajuster la taille de la photo proportionnellement */
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, .1);
 }
@@ -106,7 +93,6 @@
     left: 10%;
     width: 80%;
     height: 14%;
-    /* background-color: #EEEFF0; */
 }
 
 .words.line1,
@@ -114,22 +100,16 @@
 .words.line3 {
     font-family: "Cookie", serif;
     font-weight: 400;
-    /* font-style: normal; */
-    /* Ensure the correct font weight is applied */
     font-size: clamp(20px, 2vw, 28px);
-    /* Réduire encore la taille de la police */
     color: var(--font-div-color);
 }
 
 .words.line1 {
     top: 10%;
-    /* width: 40%;
-    height: 7%; */
 }
 
 .words.line2 {
     top: 20%;
-    /* Reduced space between line1 and line2 */
 }
 
 .words.line3 {
@@ -160,7 +140,6 @@
 
 .open .letter {
     transform: translateY(calc(-1 * var(--env-height) / 2.5));
-    /* Réduire le déplacement vers le haut */
     transition: transform .4s .6s ease, z-index .6s;
     z-index: 2;
 }
@@ -168,7 +147,6 @@
 .hearts {
     position: absolute;
     top: calc(var(--env-height) / 2.5);
-    /* Adjusted to move hearts up */
     left: 0;
     right: 0;
     z-index: 2;
@@ -210,7 +188,6 @@
 .a1 {
     left: 20%;
     transform: scale(1.2);
-    /* Adjusted scale for better visibility */
     opacity: 1;
     animation:
         slideUp 4s linear 1,
@@ -222,7 +199,6 @@
 .a2 {
     left: 55%;
     transform: scale(1.2);
-    /* Adjusted scale for better visibility */
     opacity: 1;
     animation:
         slideUp 5s linear 1,
@@ -234,7 +210,6 @@
 .a3 {
     left: 10%;
     transform: scale(1.2);
-    /* Adjusted scale for better visibility */
     opacity: 1;
     animation:
         slideUp 7s linear 1,
@@ -263,19 +238,16 @@
     }
 }
 
-/* Initialement, cacher la photo et les lignes de texte */
 .letter .photo,
 .letter .words {
     opacity: 0;
 }
 
-/* Faire apparaître la photo lors de l'ouverture */
 .open .letter .photo {
     animation: fadeInPhoto 3s forwards;
     animation-delay: 2s;
 }
 
-/* Faire apparaître les lignes de texte avec un décalage */
 .open .letter .words.line1 {
     animation: fadeInText 2s forwards;
     animation-delay: 5s;
@@ -291,7 +263,6 @@
     animation-delay: 9s;
 }
 
-/* Définition des animations */
 @keyframes fadeInPhoto {
     from {
         opacity: 0;
@@ -320,44 +291,31 @@ body {
 html,
 body {
     height: 100%;
-    /* Assurer que le body et html occupent toute la hauteur */
     margin: 0;
-    /* Supprimer les marges par défaut */
 }
 
 .page-wrapper {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* Centrer verticalement */
     align-items: center;
-    /* Centrer horizontalement */
     min-height: 100vh;
-    /* S'assurer que le wrapper occupe toute la hauteur de la fenêtre */
 }
 
 .envlope-wrapper {
-    /* Supprimer la hauteur fixe pour éviter les problèmes de débordement */
-    /* Modifier le display pour utiliser flex et aligner les éléments verticalement */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    /* Centrer verticalement */
-    /* min-height: 100vh; S'assurer que le wrapper occupe toute la hauteur de la page */
     margin-top: 0;
-    /* Supprimer la marge supérieure */
 }
 
 .reset {
     display: flex;
     justify-content: center;
     position: relative;
-    /* S'assurer que la position est relative */
     z-index: 2;
-    /* Placer au-dessus de l'enveloppe */
     margin-top: 5px;
-    /* Réduire la marge supérieure pour rapprocher les boutons */
     flex-wrap: wrap;
 }
 
@@ -387,17 +345,13 @@ body {
     color: #fff;
 }
 
-/* Styles for the gender switch */
 .gender-switch {
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
-    /* S'assurer que la position est relative */
     z-index: 2;
-    /* Placer au-dessus de l'enveloppe */
     margin-top: 20px;
-    /* Ajouter une marge supérieure si nécessaire */
     margin-bottom: 20px;
 }
 

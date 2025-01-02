@@ -1,25 +1,20 @@
-// script.js
-
-// Variables
 const puzzleContainer = document.getElementById('puzzleContainer');
 const revealText = document.getElementById('revealText');
 let puzzlePieces = [];
 let correctPositions = [];
-let rows = 4; // Nombre de lignes du puzzle
-let cols = 4; // Nombre de colonnes du puzzle
-let totalPieces = rows * cols; // Calcul du nombre total de pièces
-// si dans l'url on a ?proxiad=1 on change l'image
-let imageSrc = 'puzzle.jpg'; // Chemin de l'image
+let rows = 4;
+let cols = 4;
+let totalPieces = rows * cols;
+let imageSrc = 'puzzle.jpg';
 if (window.location.search.includes('proxiad=1')) {
     imageSrc = 'puzzle-proxiad.jpg';
 }
-const imageWidth = 450;  // Largeur de l'image en pixels
-const imageHeight = 450; // Hauteur de l'image en pixels
-const pieceWidth = imageWidth / cols;  // Largeur d'une pièce
-const pieceHeight = imageHeight / rows; // Hauteur d'une pièce
+const imageWidth = 450;
+const imageHeight = 450;
+const pieceWidth = imageWidth / cols;
+const pieceHeight = imageHeight / rows;
 let selectedPiece = null;
 
-// Fonction pour mélanger un tableau
 function shuffle(array) {
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -27,21 +22,17 @@ function shuffle(array) {
     }
 }
 
-// Fonction pour générer les pièces du puzzle
 function generatePuzzle() {
-    // Ajuster la grille du puzzle pour le nombre de colonnes et de lignes
     puzzleContainer.style.display = 'grid';
     puzzleContainer.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
     puzzleContainer.style.gridTemplateRows = `repeat(${rows}, 1fr)`;
     puzzleContainer.style.gap = '1px';
 
-    // Créer un tableau des indices des pièces
     let indices = [];
     for (let i = 0; i < totalPieces; i++) {
         indices.push(i);
     }
 
-    // Mélanger les indices
     shuffle(indices);
 
     for (let i = 0; i < totalPieces; i++) {
@@ -68,7 +59,6 @@ function generatePuzzle() {
     }
 }
 
-// Fonction pour gérer le début du drag
 function dragStart(event) {
     event.dataTransfer.setData('text', event.target.getAttribute('data-id'));
 }
@@ -77,22 +67,18 @@ function dragEnd(event) {
     event.preventDefault();
 }
 
-// Fonction pour permettre le drop
 function dragOver(event) {
     event.preventDefault();
 }
 
-// Fonction pour gérer le drop
 function drop(event) {
     event.preventDefault();
-    const draggedId = event.dataTransfer.getData('text'); // ID de la pièce déplacée
-    const targetId = event.target.getAttribute('data-id'); // ID de la pièce cible
+    const draggedId = event.dataTransfer.getData('text');
+    const targetId = event.target.getAttribute('data-id');
 
-    // Obtenez les pièces correspondantes
     const draggedElement = document.querySelector(`[data-id='${draggedId}']`);
     const targetElement = document.querySelector(`[data-id='${targetId}']`);
 
-    // Échangez uniquement leurs styles (background-position et background-image)
     const tempBackgroundPosition = draggedElement.style.backgroundPosition;
     const tempBackgroundImage = draggedElement.style.backgroundImage;
 
@@ -102,11 +88,9 @@ function drop(event) {
     targetElement.style.backgroundPosition = tempBackgroundPosition;
     targetElement.style.backgroundImage = tempBackgroundImage;
 
-    // Vérifiez si le puzzle est résolu
     checkPuzzle();
 }
 
-// Fonction pour gérer le clic sur une pièce
 function handlePieceClick(event) {
     const piece = event.target;
 
@@ -119,13 +103,11 @@ function handlePieceClick(event) {
         piece.classList.add('selected');
     }
 
-    // Haptic feedback
     if (navigator.vibrate) {
         navigator.vibrate(50);
     }
 }
 
-// Fonction pour échanger deux pièces
 function swapPieces(piece1, piece2) {
     const tempBackgroundPosition = piece1.style.backgroundPosition;
     const tempBackgroundImage = piece1.style.backgroundImage;
@@ -136,16 +118,13 @@ function swapPieces(piece1, piece2) {
     piece2.style.backgroundPosition = tempBackgroundPosition;
     piece2.style.backgroundImage = tempBackgroundImage;
 
-    // Vérifiez si le puzzle est résolu
     checkPuzzle();
 }
 
-// Fonction pour arrondir les valeurs à un nombre fixe de décimales
 function roundTo(value, decimals) {
     return Number(Math.round(value + 'e' + decimals) + 'e-' + decimals);
 }
 
-// Vérifie si le puzzle est correctement résolu
 function checkPuzzle() {
     let isSolved = true;
 
@@ -165,13 +144,10 @@ function checkPuzzle() {
     }
 
     if (isSolved) {
-        // on enleve le gap entre les pieces avec une animation
         puzzleContainer.style.gap = '0px';
-        revealText.style.display = 'block'; // Afficher l'annonce
-        // on scroll jusqu'à l'annonce
+        revealText.style.display = 'block';
         revealText.scrollIntoView({ behavior: "smooth" });
     }
 }
 
-// Fonction pour initialiser le puzzle
 generatePuzzle();
