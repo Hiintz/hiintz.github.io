@@ -5,10 +5,10 @@ const puzzleContainer = document.getElementById('puzzleContainer');
 const revealText = document.getElementById('revealText');
 let puzzlePieces = [];
 let correctPositions = [];
-let rows = 3; // Nombre de lignes du puzzle
-let cols = 3; // Nombre de colonnes du puzzle
+let rows = 4; // Nombre de lignes du puzzle
+let cols = 4; // Nombre de colonnes du puzzle
 let totalPieces = rows * cols; // Calcul du nombre total de pièces
-const imageSrc = 'echographie.jpg'; // Chemin de l'image
+const imageSrc = 'puzzle.jpg'; // Chemin de l'image
 const imageWidth = 450;  // Largeur de l'image en pixels
 const imageHeight = 450; // Hauteur de l'image en pixels
 const pieceWidth = imageWidth / cols;  // Largeur d'une pièce
@@ -136,6 +136,11 @@ function swapPieces(piece1, piece2) {
     checkPuzzle();
 }
 
+// Fonction pour arrondir les valeurs à un nombre fixe de décimales
+function roundTo(value, decimals) {
+    return Number(Math.round(value + 'e' + decimals) + 'e-' + decimals);
+}
+
 // Vérifie si le puzzle est correctement résolu
 function checkPuzzle() {
     let isSolved = true;
@@ -146,7 +151,7 @@ function checkPuzzle() {
         const expectedRow = Math.floor(correctPositions[i] / cols);
         const expectedCol = correctPositions[i] % cols;
 
-        const expectedPosition = `${(expectedCol / (cols - 1)) * 100}% ${(expectedRow / (rows - 1)) * 100}%`;
+        const expectedPosition = `${roundTo((expectedCol / (cols - 1)) * 100, 4)}% ${roundTo((expectedRow / (rows - 1)) * 100, 4)}%`;
         const actualPosition = pieces[i].style.backgroundPosition;
 
         if (expectedPosition !== actualPosition) {
@@ -161,7 +166,6 @@ function checkPuzzle() {
         revealText.scrollIntoView({ behavior: "smooth" });
     }
 }
-
 
 // Fonction pour initialiser le puzzle
 generatePuzzle();

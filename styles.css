@@ -6,10 +6,11 @@ body {
     align-items: center;
     /* height: 100vh;  */
     height: 100%;
-    padding: 10px; /* Ajouter du padding pour les petits écrans */
+    padding: 10px;
+    /* Ajouter du padding pour les petits écrans */
     margin: 0;
     color: #333;
-    
+
 }
 
 .container {
@@ -18,15 +19,18 @@ body {
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    width: 100%; /* Utiliser 100% pour prendre toute la largeur disponible */
+    width: 100%;
+    /* Utiliser 100% pour prendre toute la largeur disponible */
     max-width: 600px;
     padding-top: 0;
 }
+
 p {
     color: #7eabaf;
 }
 
-h1, h2 {
+h1,
+h2 {
     font-size: 2.5em;
     color: #c6522b;
 }
@@ -38,9 +42,12 @@ h1, h2 {
 
 .puzzle-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr)); /* Colonnes flexibles */
-    grid-template-rows: repeat(auto-fit, minmax(60px, 1fr)); /* Laisser les lignes s'adapter automatiquement */
-    gap: 1px; /* Réduire l'espace entre les pièces */
+    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+    /* Colonnes flexibles */
+    grid-template-rows: repeat(auto-fit, minmax(60px, 1fr));
+    /* Laisser les lignes s'adapter automatiquement */
+    gap: 1px;
+    /* Réduire l'espace entre les pièces */
     justify-content: center;
     margin-top: 20px;
 }
@@ -48,19 +55,23 @@ h1, h2 {
 .puzzle-piece {
     width: 100%;
     height: 0;
-    padding-bottom: 100%; /* Maintain aspect ratio */
+    padding-bottom: 100%;
+    /* Maintain aspect ratio */
     background-size: cover;
     cursor: pointer;
     transition: transform 0.3s ease;
 }
 
 .puzzle-piece.selected {
-    outline: 2px solid #c6522b; /* Use outline instead of border to avoid affecting layout */
-    outline-offset: -2px; /* Adjust offset to keep the outline within the piece */
+    outline: 4px solid #c6522b;
+    /* Use outline instead of border to avoid affecting layout */
+    outline-offset: -2px;
+    /* Adjust offset to keep the outline within the piece */
 }
 
 .puzzle-piece:hover {
-    transform: none; /* Désactiver l'effet hover sur mobile */
+    transform: none;
+    /* Désactiver l'effet hover sur mobile */
 }
 
 .reveal-text {
@@ -102,7 +113,8 @@ h1, h2 {
     }
 
     .puzzle-container {
-        gap: 1px; /* Réduire encore l'espace sur les petits écrans */
+        gap: 1px;
+        /* Réduire encore l'espace sur les petits écrans */
     }
 
     .container {
