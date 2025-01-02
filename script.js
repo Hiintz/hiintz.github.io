@@ -8,7 +8,11 @@ let correctPositions = [];
 let rows = 4; // Nombre de lignes du puzzle
 let cols = 4; // Nombre de colonnes du puzzle
 let totalPieces = rows * cols; // Calcul du nombre total de pièces
-const imageSrc = 'puzzle.jpg'; // Chemin de l'image
+// si dans l'url on a ?proxiad=1 on change l'image
+let imageSrc = 'puzzle.jpg'; // Chemin de l'image
+if (window.location.search.includes('proxiad=1')) {
+    imageSrc = 'puzzle-proxiad.jpg';
+}
 const imageWidth = 450;  // Largeur de l'image en pixels
 const imageHeight = 450; // Hauteur de l'image en pixels
 const pieceWidth = imageWidth / cols;  // Largeur d'une pièce
@@ -161,7 +165,7 @@ function checkPuzzle() {
     }
 
     if (isSolved) {
-        // on enleve le gap entre les pieces
+        // on enleve le gap entre les pieces avec une animation
         puzzleContainer.style.gap = '0px';
         revealText.style.display = 'block'; // Afficher l'annonce
         // on scroll jusqu'à l'annonce
