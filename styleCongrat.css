@@ -1,19 +1,26 @@
 :root {
-    --color-env: #c6522b; /* Updated to a new color */
-    --color-env2: #a04524; /* Darkened version of --color-env */
-    --color-flap: #8b3b1f; /* Darkened version of --color-env */
-    --color-bg: #fbe4d2;   /* Updated to a new background color */
-    --color-heart: #7eabaf; /* Updated to beige */
+    --color-env: #c6522b;
+    /* Updated to a new color */
+    --color-env2: #a04524;
+    /* Darkened version of --color-env */
+    --color-flap: #8b3b1f;
+    /* Darkened version of --color-env */
+    --color-bg: #fbe4d2;
+    /* Updated to a new background color */
+    --color-heart: #7eabaf;
+    /* Updated to beige */
 
-    --env-border-radius: 12px; /* Doubled */
-    --env-width: min(clamp(280px, 80vw, 560px), calc(100vh - 250px)); /* Réduire le 250px si nécessaire */
-    --env-height: calc(var(--env-width) * (360 / 650)); /* Maintenir le ratio hauteur/largeur */
-    --heart-width: calc(var(--env-width) * (100 / 650)); /* Ajuster la taille du cœur proportionnellement */
+    --env-border-radius: 12px;
+    /* Doubled */
+    --env-width: min(clamp(280px, 80vw, 560px), calc(100vh - 250px));
+    /* Réduire le 250px si nécessaire */
+    --env-height: calc(var(--env-width) * (360 / 650));
+    /* Maintenir le ratio hauteur/largeur */
+    --heart-width: calc(var(--env-width) * (100 / 650));
+    /* Ajuster la taille du cœur proportionnellement */
 
-    --font-div-color: #0d0d23; 
+    --font-div-color: #0d0d23;
 }
-
-@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 
 #envelope {
     position: relative;
@@ -23,13 +30,14 @@
     border-bottom-right-radius: var(--env-border-radius);
     margin-left: auto;
     margin-right: auto;
-    top: auto; /* Laisser le flexbox gérer la position verticale */
+    top: auto;
+    /* Laisser le flexbox gérer la position verticale */
     background-color: var(--color-flap);
-    box-shadow: 0 4px 20px rgba(0,0,0,.2);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, .2);
     z-index: 1;
 }
 
-.front { 
+.front {
     position: absolute;
     width: 0;
     height: 0;
@@ -48,7 +56,8 @@
 .pocket {
     border-left: calc(var(--env-width) / 2) solid var(--color-env);
     border-right: calc(var(--env-width) / 2) solid var(--color-env);
-    border-bottom: calc(var(--env-height) / 2) solid var(--color-env2); /* Updated to use the new color */
+    border-bottom: calc(var(--env-height) / 2) solid var(--color-env2);
+    /* Updated to use the new color */
     border-top: calc(var(--env-height) / 2) solid transparent;
     border-bottom-left-radius: var(--env-border-radius);
     border-bottom-right-radius: var(--env-border-radius);
@@ -63,7 +72,7 @@
     height: 90%;
     top: 5%;
     border-radius: var(--env-border-radius);
-    box-shadow: 0 2px 26px rgba(0,0,0,.12);
+    box-shadow: 0 2px 26px rgba(0, 0, 0, .12);
 }
 
 .letter:after {
@@ -73,21 +82,23 @@
     bottom: 0;
     left: 0;
     right: 0;
-    background-image: 
-        linear-gradient(180deg, 
-        rgba(255,255,255,0.00) 25%, 
-        rgba(215,227,239,0.70) 55%, 
-        rgba(215,227,239,1.00) 100%);
+    background-image:
+        linear-gradient(180deg,
+            rgba(255, 255, 255, 0.00) 25%,
+            rgba(215, 227, 239, 0.70) 55%,
+            rgba(215, 227, 239, 1.00) 100%);
 }
 
 .photo {
     position: absolute;
     top: 10px;
     right: 10px;
-    width: calc(var(--env-width) * (200 / 560)); /* Ajuster la taille de la photo proportionnellement */
-    height: calc(var(--env-height) * (200 / 360)); /* Ajuster la taille de la photo proportionnellement */
+    width: calc(var(--env-width) * (200 / 360));
+    /* Ajuster la taille de la photo proportionnellement */
+    height: calc(var(--env-height) * (200 / 300));
+    /* Ajuster la taille de la photo proportionnellement */
     border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0,0,0,.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, .1);
 }
 
 .words {
@@ -98,10 +109,15 @@
     /* background-color: #EEEFF0; */
 }
 
-.words.line1, .words.line2, .words.line3 {
-    font-family: 'Permanent Marker', cursive;
-    font-weight: 400; /* Ensure the correct font weight is applied */
-    font-size: clamp(10px, 2vw, 18px); /* Réduire encore la taille de la police */
+.words.line1,
+.words.line2,
+.words.line3 {
+    font-family: "Cookie", serif;
+    font-weight: 400;
+    /* font-style: normal; */
+    /* Ensure the correct font weight is applied */
+    font-size: clamp(20px, 2vw, 28px);
+    /* Réduire encore la taille de la police */
     color: var(--font-div-color);
 }
 
@@ -112,7 +128,8 @@
 }
 
 .words.line2 {
-    top: 19%; /* Reduced space between line1 and line2 */
+    top: 20%;
+    /* Reduced space between line1 and line2 */
 }
 
 .words.line3 {
@@ -136,20 +153,22 @@
 }
 
 .close .letter {
-    transform: translateY(0px); 
+    transform: translateY(0px);
     transition: transform .4s ease, z-index 1s;
     z-index: 1;
 }
 
 .open .letter {
-    transform: translateY(calc(-1 * var(--env-height) / 2.5)); /* Réduire le déplacement vers le haut */
+    transform: translateY(calc(-1 * var(--env-height) / 2.5));
+    /* Réduire le déplacement vers le haut */
     transition: transform .4s .6s ease, z-index .6s;
     z-index: 2;
 }
 
 .hearts {
     position: absolute;
-    top: calc(var(--env-height) / 2.5); /* Adjusted to move hearts up */
+    top: calc(var(--env-height) / 2.5);
+    /* Adjusted to move hearts up */
     left: 0;
     right: 0;
     z-index: 2;
@@ -190,10 +209,11 @@
 
 .a1 {
     left: 20%;
-    transform: scale(1.2); /* Adjusted scale for better visibility */
+    transform: scale(1.2);
+    /* Adjusted scale for better visibility */
     opacity: 1;
-    animation: 
-        slideUp 4s linear 1, 
+    animation:
+        slideUp 4s linear 1,
         sideSway 2s ease-in-out 4 alternate;
     animation-fill-mode: forwards;
     animation-delay: .7s;
@@ -201,10 +221,11 @@
 
 .a2 {
     left: 55%;
-    transform: scale(1.2); /* Adjusted scale for better visibility */
+    transform: scale(1.2);
+    /* Adjusted scale for better visibility */
     opacity: 1;
-    animation: 
-        slideUp 5s linear 1, 
+    animation:
+        slideUp 5s linear 1,
         sideSway 4s ease-in-out 2 alternate;
     animation-fill-mode: forwards;
     animation-delay: .7s;
@@ -212,20 +233,22 @@
 
 .a3 {
     left: 10%;
-    transform: scale(1.2); /* Adjusted scale for better visibility */
+    transform: scale(1.2);
+    /* Adjusted scale for better visibility */
     opacity: 1;
-    animation: 
-        slideUp 7s linear 1, 
+    animation:
+        slideUp 7s linear 1,
         sideSway 2s ease-in-out 6 alternate;
     animation-fill-mode: forwards;
     animation-delay: .7s;
 }
 
-@keyframes slideUp { 
-    0% { 
+@keyframes slideUp {
+    0% {
         top: 0;
     }
-    100% { 
+
+    100% {
         top: -600px;
     }
 }
@@ -234,6 +257,7 @@
     0% {
         margin-left: 0px;
     }
+
     100% {
         margin-left: 50px;
     }
@@ -269,13 +293,23 @@
 
 /* Définition des animations */
 @keyframes fadeInPhoto {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 @keyframes fadeInText {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 body {
@@ -283,17 +317,23 @@ body {
     height: 100%;
 }
 
-html, body {
-    height: 100%; /* Assurer que le body et html occupent toute la hauteur */
-    margin: 0; /* Supprimer les marges par défaut */
+html,
+body {
+    height: 100%;
+    /* Assurer que le body et html occupent toute la hauteur */
+    margin: 0;
+    /* Supprimer les marges par défaut */
 }
 
 .page-wrapper {
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Centrer verticalement */
-    align-items: center;     /* Centrer horizontalement */
-    min-height: 100vh;       /* S'assurer que le wrapper occupe toute la hauteur de la fenêtre */
+    justify-content: center;
+    /* Centrer verticalement */
+    align-items: center;
+    /* Centrer horizontalement */
+    min-height: 100vh;
+    /* S'assurer que le wrapper occupe toute la hauteur de la fenêtre */
 }
 
 .envlope-wrapper {
@@ -302,17 +342,22 @@ html, body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center; /* Centrer verticalement */
+    justify-content: center;
+    /* Centrer verticalement */
     /* min-height: 100vh; S'assurer que le wrapper occupe toute la hauteur de la page */
-    margin-top: 0; /* Supprimer la marge supérieure */
+    margin-top: 0;
+    /* Supprimer la marge supérieure */
 }
 
 .reset {
     display: flex;
     justify-content: center;
-    position: relative; /* S'assurer que la position est relative */
-    z-index: 2; /* Placer au-dessus de l'enveloppe */
-    margin-top: 5px; /* Réduire la marge supérieure pour rapprocher les boutons */
+    position: relative;
+    /* S'assurer que la position est relative */
+    z-index: 2;
+    /* Placer au-dessus de l'enveloppe */
+    margin-top: 5px;
+    /* Réduire la marge supérieure pour rapprocher les boutons */
     flex-wrap: wrap;
 }
 
@@ -347,9 +392,12 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative; /* S'assurer que la position est relative */
-    z-index: 2; /* Placer au-dessus de l'enveloppe */
-    margin-top: 20px; /* Ajouter une marge supérieure si nécessaire */
+    position: relative;
+    /* S'assurer que la position est relative */
+    z-index: 2;
+    /* Placer au-dessus de l'enveloppe */
+    margin-top: 20px;
+    /* Ajouter une marge supérieure si nécessaire */
     margin-bottom: 20px;
 }
 
@@ -396,11 +444,11 @@ html, body {
     border-radius: 50%;
 }
 
-input:checked + .slider {
+input:checked+.slider {
     background-color: #fbe4d2;
 }
 
-input:checked + .slider:before {
+input:checked+.slider:before {
     transform: translateX(26px);
 }
 
