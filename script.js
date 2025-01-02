@@ -161,6 +161,8 @@ function checkPuzzle() {
     }
 
     if (isSolved) {
+        // on enleve le gap entre les pieces
+        puzzleContainer.style.gap = '0px';
         revealText.style.display = 'block'; // Afficher l'annonce
         // on scroll jusqu'à l'annonce
         revealText.scrollIntoView({ behavior: "smooth" });
