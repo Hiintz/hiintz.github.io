@@ -1,0 +1,115 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fbe4d2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 10px;
+    margin: 0;
+    color: #333;
+}
+
+.container {
+    text-align: center;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+    padding-top: 0;
+}
+
+p {
+    color: #7eabaf;
+}
+
+h1,
+h2 {
+    font-size: 2.5em;
+    color: #c6522b;
+}
+
+.intro-text {
+    font-size: 1.2em;
+    margin: 20px 0;
+}
+
+.puzzle-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+    grid-template-rows: repeat(auto-fit, minmax(60px, 1fr));
+    gap: 1px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.puzzle-piece {
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;
+    background-size: cover;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.puzzle-piece.selected {
+    outline: 4px solid #c6522b;
+    outline-offset: -2px;
+}
+
+.puzzle-piece:hover {
+    transform: none;
+}
+
+.reveal-text {
+    display: none;
+    color: #ff6f61;
+}
+
+.reveal-text h2 {
+    font-size: 2.5em;
+}
+
+#congrat {
+    font-weight: 800;
+    font-style: normal;
+    transition: all .1s linear;
+    background-color: transparent;
+    border: solid 2px #c6522b;
+    border-radius: 4px;
+    color: #c6522b;
+    display: inline-block;
+    font-size: 14px;
+    text-transform: uppercase;
+    margin: 5px;
+    padding: 10px;
+    line-height: 1em;
+    text-decoration: none;
+    min-width: 120px;
+    cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.8em;
+    }
+
+    .intro-text {
+        font-size: 1em;
+    }
+
+    .puzzle-container {
+        gap: 1px;
+    }
+
+    .container {
+        padding: 20px;
+    }
+
+    #congrat {
+        font-size: 12px;
+        padding: 8px;
+    }
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styleCongrat.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">
+    <title>SURPRISE!</title>
+    <link rel="shortcut icon" href="icon.png" type="image/x-icon">
+</head>
+
+<body>
+    <div class="page-wrapper">
+        <div class="envlope-wrapper">
+            <div id="envelope" class="close">
+                <div class="front flap"></div>
+                <div class="front pocket"></div>
+                <div class="letter">
+                    <img src="echo.jpg" alt="Photo" class="photo">
+                    <div class="words line1">Spoiler Alert :</div>
+                    <div class="words line2">C'est un bébé !</div>
+                    <div class="words line3">04/08/2025</div>
+                    <div class="words line4"></div>
+                </div>
+                <div class="hearts">
+                    <div class="heart a1"></div>
+                    <div class="heart a2"></div>
+                    <div class="heart a3"></div>
+                </div>
+            </div>
+        </div>
+        <div class="gender-switch">
+            <label for="genderSwitch"></label>
+            <label class="switch">
+                <input type="checkbox" id="genderSwitch">
+                <span class="slider"></span>
+            </label>
+            <label for="genderSwitch"></label>
+        </div>
+        <div class="reset">
+            <button id="open">Ouvrir</button>
+            <button id="reset">Fermer</button>
+            <button id="back" onclick="window.location.href='index.html'">Rejouer</button>
+        </div>
+    </div>
+    <script src="scriptCongrat.js"></script>
+</body>
+
+</html>
