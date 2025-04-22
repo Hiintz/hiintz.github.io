@@ -216,6 +216,88 @@ h1 {
     font-style: italic;
 }
 
+/* Birth Details Section */
+.birth-details {
+    padding: 20px 0 40px;
+    text-align: center;
+}
+
+.birth-details h2 {
+    color: #b2562d;
+    margin-bottom: 30px;
+}
+
+.birth-card {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.birth-photo {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 20px;
+    border: 5px solid #f8f4f1;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.birth-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.birth-info h3 {
+    color: #2d5644;
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.birth-info ul {
+    list-style: none;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.birth-info ul li {
+    margin: 10px 0;
+    font-size: 1.1rem;
+}
+
+.birth-info ul li span {
+    font-weight: bold;
+    color: #b2562d;
+    margin-right: 5px;
+}
+
+.birth-quote {
+    font-style: italic;
+    color: #666;
+    margin-top: 15px;
+    font-size: 1.1rem;
+}
+
+/* Sequential animation styles */
+.hidden-item {
+    opacity: 0;
+    transform: translateY(-50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.show-item {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 @media (max-width: 600px) {
     .photo-container {
         width: 250px;
@@ -241,5 +323,22 @@ h1 {
     .timeline-item {
         /* padding-left: 70px; */
         padding-right: 25px;
+    }
+
+    .birth-card {
+        padding: 20px;
+    }
+
+    .birth-photo {
+        width: 150px;
+        height: 150px;
+    }
+
+    .birth-info h3 {
+        font-size: 2rem;
+    }
+
+    .birth-info ul li {
+        font-size: 1rem;
     }
 }

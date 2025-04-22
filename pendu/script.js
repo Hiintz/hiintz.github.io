@@ -100,10 +100,25 @@ document.addEventListener('DOMContentLoaded', function () {
                 key.classList.add('disabled');
             });
 
-            // Afficher la timeline
+            // Afficher la timeline avec délai
             setTimeout(() => {
                 timelineSection.classList.remove('hidden');
-                // Scroll doux jusqu'à la timeline
+
+                // Animer les éléments de la timeline séquentiellement
+                const hiddenItems = document.querySelectorAll('.hidden-item');
+                hiddenItems.forEach(item => {
+                    const delay = parseInt(item.dataset.delay) || 0;
+                    setTimeout(() => {
+                        item.classList.add('show-item');
+
+                        // Scroll pour suivre l'élément qui apparaît
+                        if (delay > 0) { // Ne pas scroll pour le premier élément
+                            item.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        }
+                    }, delay);
+                });
+
+                // Scroll doux jusqu'au début de la timeline
                 timelineSection.scrollIntoView({ behavior: 'smooth' });
             }, 1500); // Délai avant d'afficher la timeline
         }
