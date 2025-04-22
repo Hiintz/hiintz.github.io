@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Devine mon prénom !</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <div class="container">
         <h1>Notre merveille est arrivée !</h1>
-        
+
         <div class="photo-container">
             <img id="baby-photo" src="echo.jpg" alt="Notre bébé">
         </div>
@@ -18,7 +20,7 @@
             <p>Devinez le prénom de notre bébé :</p>
             <div id="word-container" class="word-container"></div>
             <div id="message"></div>
-            
+
             <div id="keyboard" class="keyboard">
                 <div class="keyboard-row">
                     <button class="key">A</button>
@@ -54,8 +56,56 @@
                 </div>
             </div>
         </div>
+
+        <!-- Timeline section - hidden by default -->
+        <div id="timeline-section" class="timeline-section hidden">
+            <h2>Notre aventure en images</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Échographie T1</h3>
+                        <div class="timeline-date">12 Mars 2023</div>
+                        <div class="timeline-img">
+                            <img src="echo-t1.jpg" alt="Échographie T1">
+                        </div>
+                        <p>Notre première rencontre</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Échographie T2</h3>
+                        <div class="timeline-date">25 Mai 2023</div>
+                        <div class="timeline-img">
+                            <img src="echo-t2.jpg" alt="Échographie T2">
+                        </div>
+                        <p>Tu commences à bien grandir !</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Échographie T3</h3>
+                        <div class="timeline-date">18 Août 2023</div>
+                        <div class="timeline-img">
+                            <img src="echo-t3.jpg" alt="Échographie T3">
+                        </div>
+                        <p>Presque prêt(e) à nous rejoindre</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Naissance</h3>
+                        <div class="timeline-date">10 Octobre 2023</div>
+                        <div class="timeline-img">
+                            <img src="birth.jpg" alt="Naissance">
+                        </div>
+                        <p>Te voilà enfin parmi nous !</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="script.js"></script>
 </body>
+
 </html>
