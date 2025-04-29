@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const messageElement = document.getElementById('message');
     const babyPhoto = document.getElementById('baby-photo');
     const keys = document.querySelectorAll('.key');
+    const timelineSection = document.getElementById('timeline-section');
 
     // Initialiser le jeu
     function initGame() {
@@ -91,13 +92,35 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (allLettersFound) {
             messageElement.textContent = 'Félicitations ! Vous avez deviné le prénom !';
-            messageElement.style.color = '#4CAF50';
+            messageElement.style.color = '#2d5644';
             babyPhoto.style.filter = 'blur(0)';
 
             // Désactiver toutes les touches
             keys.forEach(key => {
                 key.classList.add('disabled');
             });
+
+            // Afficher la timeline avec délai
+            setTimeout(() => {
+                timelineSection.classList.remove('hidden');
+
+                // Animer les éléments de la timeline séquentiellement
+                const hiddenItems = document.querySelectorAll('.hidden-item');
+                hiddenItems.forEach(item => {
+                    const delay = parseInt(item.dataset.delay) || 0;
+                    setTimeout(() => {
+                        item.classList.add('show-item');
+
+                        // Scroll pour suivre l'élément qui apparaît
+                        if (delay > 0) { // Ne pas scroll pour le premier élément
+                            item.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        }
+                    }, delay);
+                });
+
+                // Scroll doux jusqu'au début de la timeline
+                timelineSection.scrollIntoView({ behavior: 'smooth' });
+            }, 1500); // Délai avant d'afficher la timeline
         }
     }
 
