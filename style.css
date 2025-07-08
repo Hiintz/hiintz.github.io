@@ -519,7 +519,6 @@ a {
     cursor: pointer;
 }
 
-/* Permettre la sélection de texte sans curseur clignotant */
 p,
 .timeline-description,
 .language-item,
@@ -529,6 +528,14 @@ p,
 .timeline-date,
 .skill-name {
     cursor: text;
+}
+
+.opquast-badge {
+    width: 100px;
+    height: auto;
+    margin-left: 10px;
+    vertical-align: middle;
+    cursor: pointer;
 }
 
 /* Responsive Design */
