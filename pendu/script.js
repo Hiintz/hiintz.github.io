@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     // Configuration du jeu 
-    const secretName = "TONY"; // Le prénom à deviner
+    const secretName = "EZIO";
 
     // Variables du jeu
     let guessedLetters = [];
