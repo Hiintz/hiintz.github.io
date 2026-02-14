@@ -204,13 +204,13 @@ h1:hover::after {
 .sidebar {
     flex: 0 0 30%;
     background: var(--light-color);
-    padding: 30px;
+    padding: 10px 30px;
 }
 
 /* Contenu principal */
 .content {
     flex: 0 0 70%;
-    padding: 30px;
+    padding: 10px 30px;
 }
 
 /* Sections */
@@ -260,6 +260,7 @@ h1:hover::after {
     border-left: 0 solid var(--primary-color);
     transition: all 0.5s ease;
     padding-left: 0;
+    margin-bottom: 20px;
 }
 
 .section:first-child:hover {
@@ -459,13 +460,14 @@ h1:hover::after {
 /* Intérêts */
 .interests-list {
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
     margin-top: 10px;
 }
 
 .interest-item {
     background: var(--light-color);
-    padding: 5px 10px;
+    /* padding: 5px 10px; */
     border-radius: 15px;
     margin: 0 8px 8px 0;
     font-size: 0.9rem;
