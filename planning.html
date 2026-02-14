@@ -1,0 +1,142 @@
+ <!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Planning 3x8 - 6 personnes</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #111827;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --accent: #38bdf8;
+      --border: #1f2937;
+      --morning: #34d39933;
+      --afternoon: #fbbf2433;
+      --night: #a855f733;
+      --day: #60a5fa33;
+      --rest: #ef444433;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Inter", system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      padding: 24px;
+    }
+    h1, h2 { margin: 0 0 12px; }
+    h1 { font-size: 24px; }
+    h2 { font-size: 18px; color: var(--muted); }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+      font-size: 14px;
+    }
+    th, td {
+      border: 1px solid var(--border);
+      padding: 10px;
+      text-align: center;
+    }
+    th { background: #111827; position: sticky; top: 0; z-index: 1; }
+    tbody tr:nth-child(odd) { background: rgba(255,255,255,0.02); }
+    .legend { display: flex; gap: 12px; flex-wrap: wrap; font-size: 13px; color: var(--muted); }
+    .tag { display: inline-flex; align-items: center; gap: 6px; padding: 4px 8px; border-radius: 8px; border: 1px solid var(--border); background: rgba(255,255,255,0.03); }
+    .dot { width: 12px; height: 12px; border-radius: 999px; }
+    .morning { background: var(--morning); }
+    .afternoon { background: var(--afternoon); }
+    .night { background: var(--night); }
+    .day { background: var(--day); }
+    .rest { background: var(--rest); }
+    .note { color: var(--muted); font-size: 13px; margin-top: 8px; }
+    .nowrap { white-space: nowrap; }
+    @media (max-width: 900px) {
+      table, thead, tbody, th, td, tr { font-size: 12px; }
+      th, td { padding: 8px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Planning 3x8 – 6 personnes</h1>
+    <h2>Rota sur 2 semaines, couverture week-end, ~40h/semaine, repos entre changements de poste</h2>
+    <div class="legend">
+      <span class="tag"><span class="dot morning"></span>Matin 6–14</span>
+      <span class="tag"><span class="dot afternoon"></span>Aprem 14–22</span>
+      <span class="tag"><span class="dot night"></span>Nuit 22–6</span>
+      <span class="tag"><span class="dot day"></span>Journée 9–17</span>
+      <span class="tag"><span class="dot rest"></span>Repos</span>
+    </div>
+    <p class="note">Règle de repos : personne n'enchaîne deux postes de type différent sans au moins une journée de repos.</p>
+  </div>
+
+  <div class="card">
+    <h2>Semaine 1</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Jour</th>
+          <th class="nowrap">6–14</th>
+          <th class="nowrap">14–22</th>
+          <th class="nowrap">22–6</th>
+          <th class="nowrap">9–17</th>
+          <th>Repos</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Lundi</td><td class="morning">Tony</td><td class="afternoon">Hugo</td><td class="night">Vincent</td><td class="day">Jean Brice</td><td class="rest">Hakane, Mickael</td></tr>
+        <tr><td>Mardi</td><td class="morning">Tony</td><td class="afternoon">Hugo</td><td class="night">Vincent</td><td class="day">Hakane</td><td class="rest">Jean Brice, Mickael</td></tr>
+        <tr><td>Mercredi</td><td class="morning">Tony</td><td class="afternoon">Jean Brice</td><td class="night">Hugo</td><td class="day">Mickael</td><td class="rest">Vincent, Hakane</td></tr>
+        <tr><td>Jeudi</td><td class="morning">Tony</td><td class="afternoon">Jean Brice</td><td class="night">Hugo</td><td class="day">Hakane</td><td class="rest">Vincent, Mickael</td></tr>
+        <tr><td>Vendredi</td><td class="morning">Tony</td><td class="afternoon">Jean Brice</td><td class="night">Hakane</td><td class="day">Vincent</td><td class="rest">Hugo, Mickael</td></tr>
+        <tr><td>Samedi</td><td class="morning">Hugo</td><td class="afternoon">Tony</td><td class="night">Hakane</td><td class="day">Mickael</td><td class="rest">Vincent, Jean Brice</td></tr>
+        <tr><td>Dimanche</td><td class="morning">Hugo</td><td class="afternoon">Tony</td><td class="night">Hakane</td><td class="day">Vincent</td><td class="rest">Mickael, Jean Brice</td></tr>
+      </tbody>
+    </table>
+    <p class="note">Charges S1 (heures) : Tony 40, Hugo 40, Vincent 32, Jean Brice 32, Hakane 32, Mickael 24.</p>
+  </div>
+
+  <div class="card">
+    <h2>Semaine 2</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Jour</th>
+          <th class="nowrap">6–14</th>
+          <th class="nowrap">14–22</th>
+          <th class="nowrap">22–6</th>
+          <th class="nowrap">9–17</th>
+          <th>Repos</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Lundi</td><td class="morning">Vincent</td><td class="afternoon">Tony</td><td class="night">Hugo</td><td class="day">Mickael</td><td class="rest">Jean Brice, Hakane</td></tr>
+        <tr><td>Mardi</td><td class="morning">Vincent</td><td class="afternoon">Tony</td><td class="night">Hugo</td><td class="day">Hakane</td><td class="rest">Jean Brice, Mickael</td></tr>
+        <tr><td>Mercredi</td><td class="morning">Vincent</td><td class="afternoon">Hakane</td><td class="night">Tony</td><td class="day">Jean Brice</td><td class="rest">Hugo, Mickael</td></tr>
+        <tr><td>Jeudi</td><td class="morning">Vincent</td><td class="afternoon">Hakane</td><td class="night">Tony</td><td class="day">Mickael</td><td class="rest">Hugo, Jean Brice</td></tr>
+        <tr><td>Vendredi</td><td class="morning">Vincent</td><td class="afternoon">Hakane</td><td class="night">Mickael</td><td class="day">Hugo</td><td class="rest">Tony, Jean Brice</td></tr>
+        <tr><td>Samedi</td><td class="morning">Hakane</td><td class="afternoon">Vincent</td><td class="night">Mickael</td><td class="day">Tony</td><td class="rest">Hugo, Jean Brice</td></tr>
+        <tr><td>Dimanche</td><td class="morning">Hakane</td><td class="afternoon">Vincent</td><td class="night">Mickael</td><td class="day">Tony</td><td class="rest">Hugo, Jean Brice</td></tr>
+      </tbody>
+    </table>
+    <p class="note">Charges S2 (heures) : Tony 32, Hugo 32, Vincent 40, Jean Brice 24, Hakane 40, Mickael 32.</p>
+  </div>
+
+  <div class="card">
+    <h2>Équilibre moyen</h2>
+    <p class="note">Moyenne sur 2 semaines (≈40h/semaine visée) : Tony 72h, Hugo 72h, Vincent 72h, Jean Brice 56h, Hakane 72h, Mickael 56h. Ajustez en décalant quelques repos pour lisser à 80h/2 semaines (40h/sem) si souhaité.</p>
+    <p class="note">Suggestion de lissage : donner 1 poste en plus à Jean Brice et Mickael sur S1 (en remplaçant un repos chacun) et alléger Tony/Hugo d'un poste S1 pour atteindre ~80h/2 semaines chacun.</p>
+  </div>
+</body>
+</html>
